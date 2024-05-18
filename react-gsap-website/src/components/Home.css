@@ -1,0 +1,47 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Home container */
+.home-container {
+    background-color: #2a2929;
+    color: white;
+    position: relative; /* Set position to relative to contain absolute positioned elements */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Home title */
+.home-title {
+    font-size: 100px;
+    margin-right: 100px; /* Add some spacing between the title and the slider */
+    opacity: 0.6;
+    margin-top: 560px;
+    color: grey;
+}
+
+/* Home title spans */
+.home-title span {
+    display: block; /* Display each span as a block element */
+    margin-bottom: 10px; /* Add spacing between each line */
+    margin-right: 50px;
+}
+
+/* Style the grey text */
+.grey-text {
+    color: grey; /* Color the text in grey */
+}
+
+/* Slider container */
+.slider-container {
+    width: 1350px; /* Adjust slider width as needed */
+    height: 1200px; /* Adjust slider height as needed */
+    overflow: auto;
+    margin-top: -490px;
+}
