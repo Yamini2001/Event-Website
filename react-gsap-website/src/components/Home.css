@@ -1,71 +1,181 @@
-/* Reset CSS */
-* {
+/* Ensure the body or parent container has a relative position */
+body, .App {
+    position: relative;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    height: 100vh; /* Full height of the viewport */
+    width: 100vw;  /* Full width of the viewport */
+    overflow: hidden; /* Optional: Prevent scrollbars if content overflows */
 }
 
-/* Home container */
 .home-container {
-    background-color: #2a2929;
-    color: white;
-    position: relative; /* Set position to relative to contain absolute positioned elements */
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     position: relative;
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Full height of the viewport */
+    width: 100vw;  /* Full width of the viewport */
+    overflow: hidden; /* Optional: Prevent scrollbars if content overflows */
+    background-color: #2a2929;
+    
 }
 
 .home-content {
-    text-align: left; /* Center the text */
-    margin-top: -1300px; /* Adjust the top margin to create space for the slider */
-    margin-right: 960px;
-  }
+    text-align: center;
+    padding-top: 50px; /* Adjust as needed */
+}
 
-/* Home title */
 .home-title {
-    font-size: 110px;
-    margin-right: 50px; /* Add some spacing between the title and the slider */
+    font-size: 7.5em;
+    margin: 0 30px;
+    right:120px;
+    color: #504f4f;
     opacity: 0.5;
-    margin-top: 1690px;
+    margin-top: -45px;
+    margin-right: 970px;
+
+}
+.ix{
+    margin-right: 190px;
+    line-height: -0.1;
+}
+
+.events{
+    margin-right: 110px;
+}
+.events1{
+    margin-right: 100px;
+}
+.grey-text {
     color: grey;
 }
-
-/* Home title spans */
-.home-title span {
-    display: block; /* Display each span as a block element */
-    margin-bottom: 10px; /* Add spacing between each line */
-    margin-right: 50px;
-}
-
-/* Style the grey text */
-.grey-text {
-    color: grey; /* Color the text in grey */
-}
-
-/* Slider container */
 .slider-container {
-    position: absolute; /* Position the slider absolutely within the container */
-    top: -95%; /* Place the slider at the top */
-    left: 40%; /* Center the slider horizontally */
-    transform: translateX(-50%); /* Adjust for center alignment */
-    z-index: 1; /* Ensure the slider is visually above other content */
-  }
-
-.marquee-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    height: 100px; /* Adjust as needed */
-    overflow: hidden;
-    background-color: purple; /* Background fixed to black */
-    margin-left: 1400px;
-    margin-top: -940px;
-
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 150px; /* Adjust height as needed */
+    transform: translateY(-50%); /* Center vertically */
+    z-index: -1; /* Ensure it is behind other content */
 }
-.heading-container{
-    font-size: 20px;
+
+/* Home.css */
+.vertical-marquee-container {
+    position: absolute;
+    right: 20px; /* Adjust positioning as needed */
+    top: 100px; /* Adjust positioning as needed */
+}
+
+
+
+.heading-content {
+    position: absolute;
+    top: -12px;      /* Adjust the top position as needed */
+    right: 260px;    /* Adjust the right position as needed */
     text-align: right;
+    font-size: 18px;
+    color: white;
+}
+
+.heading-content h1 {
+    margin: 0;
+    padding: 0;
+}
+
+.event-line {
+    display: block;
+    margin-right: 202px;
+}
+
+.event {
+    margin-top: 80px; /* Space between Event Name and the venue info */
+    text-align: right;
+    font-size: 24px;
+    color: white; /* Adjust the color as needed */
+    margin-right: 25px; /* Adjust as needed */
+}
+
+.venue-info i {
+    margin-right: 10px; /* Space between the icon and the text */
+    color: white; /* Adjust the color as needed */
+}
+
+.venue {
+    font-size: 1.2em;
+    text-align: left;
+    color: white; /* Adjust the color as needed */
+}
+.Lorem {
+    text-align: left; /* Align the text to the left */
+    margin-top: 20px; /* Space above the paragraph */
+    padding: 0 20px; /* Add padding to ensure proper spacing */
+    color: white; /* Adjust the text color as needed */
+    font-size: 16px; /* Adjust the font size as needed */
+    /* line-height: 1.6;  */
+    white-space: normal; /* Allow text to wrap */
+    word-wrap: break-word; /* Break long words to prevent overflow */
+    margin-bottom: 80px;
+    margin-left: 500px;
+    /* justify-content: left; */
+}
+.artist{
+    margin-right: 130px;
+    margin-top: -30px;
+}
+.images-container {
+    position: relative;
+    margin-top: 20px; /* Space above the images */
+}
+
+.images-container .image-wrapper {
+    position: relative;
+    margin-left: 10px;
+}
+
+.images-container .small-image {
+    width: 100px; /* Width for small images */
+    height: 200px;
+    border-radius: 10px;
+    transition: transform 0.3s ease; /* Smooth hover effect */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    position: absolute;
+    top: 50%; /* Vertically center */
+    transform: translateY(-50%);
+    z-index: 1; /* Ensure it's above the large image */
+}
+
+.images-container .small-image:first-child {
+    left: 400px; /* Position to the left of the large image */
+}
+
+.images-container .small-image:last-child {
+    right: -100px; /* Position to the right of the large image */
+}
+
+.images-container .large-image {
+    width: 300px; /* Width for the large image */
+    height: 300px;
+    border-radius: 10px;
+    transition: transform 0.3s ease; /* Smooth hover effect */
+    z-index: 1; /* Ensure it's below the small images */
+    margin-left: 510px;
+}
+
+.images-container img:hover {
+    transform: scale(1.1); /* Scale up on hover */
+}
+
+.images-container .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.images-container img:hover .overlay {
+    opacity: 1;
 }

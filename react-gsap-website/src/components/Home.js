@@ -1,30 +1,28 @@
 import React from 'react';
-import Slider from './Slider'; // Import the Slider component
 import './Home.css';
-import Marquee from './Marquee';
 import Footer from './Footer';
+import VerticalMarquee from './VerticalMarquee'; // Import the new component
+import Slider from './Slider';
 
 const Home = () => {
     return (
         <div className="home-container">
             <div className="home-content">
-           <h1 className='home-title'>
-              <span>ASTR</span>
-              <sapn className="grey-text">IX</sapn>
-              <span>EVE</span>
-              <span>NTS</span>
-           </h1>
-            <div className="slider-container">
+                <h1 className='home-title'>
+                    <span>ASTR<br/></span>
+                    <span className='ix'>IX<br/></span>
+                    <span className='events'>EVE<br/></span>
+                    <span className='events1'>NTS</span>
+                </h1>
+                <div className="slider-container">
                     <Slider />
+                </div>
+                <div className="vertical-marquee-container">
+                    <VerticalMarquee /> {/* Add the vertical marquee */}
+                </div>
             </div>
-            <div className="marquee-container">
-                    <Marquee />
-            </div>
-            <div className='header-container'>
-            <Footer/>
-            </div>
-    </div>
-    </div>
+            <Footer /> {/* Ensure Footer is only rendered once */}
+        </div>
     );
 };
 

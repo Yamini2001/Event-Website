@@ -1,48 +1,48 @@
-// src/components/Slider.js
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import './Slider.css';
 
 // Placeholder images
-import image1 from '../assets/images/image1.jpg';
-import image2 from '../assets/images/image2.jpg';
-import image3 from '../assets/images/image3.jpg';
+import image1 from '../assets/images/image1.png';
+import image2 from '../assets/images/image2.png';
+import image3 from '../assets/images/image3.png';
+import image4 from '../assets/images/image4.png';
 
-const images = [image1, image2, image3];
+const images = [image1, image2, image3, image4];
 
 const Slider = () => {
     const sliderRef = useRef();
+    const slideWidth = 800; // Adjust slide width as needed
+    const slideDuration = 3; // Adjust slide duration in seconds
 
     useEffect(() => {
-        const ctx = gsap.context(() => {
-            gsap.to('.slider-container', {
-                xPercent: -100 * (images.length - 1),
-                duration: images.length * 2,
-                ease: 'none',
-                repeat: -1,
-                repeatDelay: 1,
-                delay: 1,
-                scrollTrigger: {
-                    trigger: '.slider-container',
-                    start: 'top top',
-                    end: 'bottom top',
-                    scrub: true,
-                },
-            });
-        }, sliderRef);
+        const slides = sliderRef.current.children;
+        const totalSlides = slides.length;
 
-        return () => ctx.revert();
+        // Calculate the total distance to move the slider
+        const totalDistance = slideWidth * totalSlides;
+
+        const tl = gsap.timeline({ repeat: -1, defaults: { ease: 'none' } });
+
+        // Move all slides from right to left
+        tl.to(sliderRef.current, { x: `-=${totalDistance}`, duration: slideDuration * totalSlides });
+
+        // Move all slides from left to right (reverse)
+        tl.to(sliderRef.current, { x: 0, duration: 0 }); // Set x value to 0 for immediate return
+
+        // Move slider back to marquee line
+        tl.to(sliderRef.current, { y: '-=100%', duration: 1 });
+
+        return () => tl.kill();
     }, []);
 
     return (
-        <div className="slider-wrapper">
-            <div className="slider-container" ref={sliderRef}>
-                {images.map((image, index) => (
-                    <div className="slider-image" key={index}>
-                        <img src={image} alt={`Slide ${index + 1}`} />
-                    </div>
-                ))}
-            </div>
+        <div className="slider-container" ref={sliderRef}>
+            {images.map((image, index) => (
+                <div className="slider-image" key={index}>
+                    <img src={image} alt={`Slide ${index + 1}`} />
+                </div>
+            ))}
         </div>
     );
 };

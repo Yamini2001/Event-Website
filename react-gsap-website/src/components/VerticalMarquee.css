@@ -1,0 +1,53 @@
+/* VerticalMarquee.css */
+.vertical-marquee {
+    position: absolute; /* Ensure the position is absolute to control it relative to the viewport */
+    width: 90px; /* Adjust width as needed */
+    height: 1380vh; /* Full height of the viewport */
+    overflow: hidden; /* Hide overflow content */
+    display: flex-end;
+    align-items: center;
+    justify-content: flex-end; /* Align content to the bottom */
+    background-color: plum; /* Optional: background color */
+    right: 690px; /* Adjust the right position as needed */
+    top: -950px; /* Start from the top */
+    bottom: 630px;
+}
+
+.marquee-content {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: flex-end; /* Start animation from the bottom */
+    animation: scroll 10s linear infinite; /* Adjust duration as needed */
+    text-wrap: nowrap;
+    /* transform: ; */
+}
+
+.marquee-item {
+    margin: 10px 0; /* Space between items */
+    white-space: nowrap; /* Prevent text wrapping */
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.marquee-item img {
+    background-color: none; /* No background color */
+    color: black;
+}
+
+.text {
+    color: black;
+    /* background-color: none;  */
+    transform: rotate(90deg);
+    margin: 10px 0; 
+    background-color: plum;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateY(100%); /* Start from the bottom */
+    }
+    100% {
+        transform: translateY(-100%); /* End at the top */
+    }
+}
