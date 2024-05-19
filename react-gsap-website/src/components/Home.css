@@ -15,14 +15,21 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
+
+.home-content {
+    text-align: left; /* Center the text */
+    margin-top: -1300px; /* Adjust the top margin to create space for the slider */
+    margin-right: 960px;
+  }
 
 /* Home title */
 .home-title {
-    font-size: 100px;
-    margin-right: 100px; /* Add some spacing between the title and the slider */
-    opacity: 0.6;
-    margin-top: 560px;
+    font-size: 110px;
+    margin-right: 50px; /* Add some spacing between the title and the slider */
+    opacity: 0.5;
+    margin-top: 1690px;
     color: grey;
 }
 
@@ -40,8 +47,25 @@
 
 /* Slider container */
 .slider-container {
-    width: 1350px; /* Adjust slider width as needed */
-    height: 1200px; /* Adjust slider height as needed */
-    overflow: auto;
-    margin-top: -490px;
+    position: absolute; /* Position the slider absolutely within the container */
+    top: -95%; /* Place the slider at the top */
+    left: 40%; /* Center the slider horizontally */
+    transform: translateX(-50%); /* Adjust for center alignment */
+    z-index: 1; /* Ensure the slider is visually above other content */
+  }
+
+.marquee-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    height: 100px; /* Adjust as needed */
+    overflow: hidden;
+    background-color: purple; /* Background fixed to black */
+    margin-left: 1400px;
+    margin-top: -940px;
+
+}
+.heading-container{
+    font-size: 20px;
+    text-align: right;
 }

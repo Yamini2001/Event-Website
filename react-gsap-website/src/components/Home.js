@@ -1,6 +1,8 @@
 import React from 'react';
 import Slider from './Slider'; // Import the Slider component
 import './Home.css';
+import Marquee from './Marquee';
+import Footer from './Footer';
 
 const Home = () => {
     return (
@@ -11,13 +13,18 @@ const Home = () => {
               <sapn className="grey-text">IX</sapn>
               <span>EVE</span>
               <span>NTS</span>
-
            </h1>
             <div className="slider-container">
                     <Slider />
-                </div>
             </div>
-        </div>
+            <div className="marquee-container">
+                    <Marquee />
+            </div>
+            <div className='header-container'>
+            <Footer/>
+            </div>
+    </div>
+    </div>
     );
 };
 

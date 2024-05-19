@@ -1,0 +1,26 @@
+/* Marquee.css */
+.marquee-container {
+    width: 100px; /* Adjust the width as needed */
+    height: 1100px; /* Adjust the height as needed */
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+    background-color: rgb(167, 112, 167); /* Ensure background is black */
+}
+
+.marquee-content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 50%; /* Adjust the top position */
+    left: 50%;
+    transform: rotate(270deg) translateY(-50%);
+    transform-origin: right center;
+    animation: slider linear infinite;;
+    color: black; /* Ensure text is visible */
+}
+
+@keyframes marquee {
+    0%   { transform: translateY(100vh) }
+    100% { transform: translateY(-100%) }
+}
