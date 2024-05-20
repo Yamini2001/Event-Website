@@ -3,8 +3,14 @@ import './Home.css';
 import Footer from './Footer';
 import VerticalMarquee from './VerticalMarquee'; // Import the new component
 import Slider from './Slider';
+import image1 from '../assets/images/image1.png';
+import image2 from '../assets/images/image1.png';
+import image3 from '../assets/images/image1.png';
+import image4 from '../assets/images/image1.png';
+
 
 const Home = () => {
+    const images = [image1,image2,image3,image4];
     return (
         <div className="home-container">
             <div className="home-content">
@@ -14,14 +20,14 @@ const Home = () => {
                     <span className='events'>EVE<br/></span>
                     <span className='events1'>NTS</span>
                 </h1>
-                <div className="slider-container">
-                    <Slider />
-                </div>
+                <div className='slide-wrapper'>
+                <Slider images={images} />
                 <div className="vertical-marquee-container">
-                    <VerticalMarquee /> {/* Add the vertical marquee */}
+                    <VerticalMarquee /> 
                 </div>
             </div>
             <Footer /> {/* Ensure Footer is only rendered once */}
+        </div>
         </div>
     );
 };

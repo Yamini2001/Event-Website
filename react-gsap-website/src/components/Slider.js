@@ -1,40 +1,48 @@
 import React, { useEffect, useRef } from 'react';
-import gsap from 'gsap';
+import { gsap } from 'gsap';
 import './Slider.css';
-import image1 from '../assets/images/image1.png';
-import image2 from '../assets/images/image2.png';
-import image3 from '../assets/images/image3.png';
-import image4 from '../assets/images/image4.png';
 
-const Slider = () => {
-    const sliderRef = useRef(null);
+const ImageSlider = ({ images }) => {
+  const sliderRef = useRef(null);
 
-    useEffect(() => {
-        const images = sliderRef.current.querySelectorAll('.slide');
+  useEffect(() => {
+    const slider = sliderRef.current;
+    const slides = slider.children;
+    const slideWidth = slides[0].clientWidth + parseInt(getComputedStyle(slides[0]).marginRight, 10);
+    let counter = 1;
 
-        gsap.to(images, {
-            xPercent: -100 * (images.length - 1),
-            ease: 'none',
-            duration: 16,
-            repeat: -1,
-            yoyo: true,
-            stagger: {
-                each: 4,
-                repeat: -1,
-            },
-        });
-    }, []);
+    const moveSlides = () => {
+      gsap.to(slider, {
+        x: -counter * slideWidth,
+        duration: 0.5,
+        ease: 'power2.inOut',
+      });
 
-    return (
-        <div className="slider-container" ref={sliderRef}>
-            <div className="slider-track">
-                <div className="slide"><img src={image1} alt="Image 1" /></div>
-                <div className="slide"><img src={image2} alt="Image 2" /></div>
-                <div className="slide"><img src={image3} alt="Image 3" /></div>
-                <div className="slide"><img src={image4} alt="Image 4" /></div>
-            </div>
-        </div>
-    );
+      counter++;
+      if (counter >= slides.length) {
+        setTimeout(() => {
+          counter = 0;
+          gsap.set(slider, { x: 0 });
+        }, 500);
+      }
+    };
+
+    const interval = setInterval(moveSlides, 3000);
+
+    return () => clearInterval(interval);
+  }, [images]);
+
+  return (
+    <div className="slider-container">
+      <div className="slider" ref={sliderRef}>
+        {images.map((image, index) => (
+          <div className="slide" key={index}>
+            <img src={image} alt={`Slide ${index}`} />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 };
 
-export default Slider;
+export default ImageSlider;

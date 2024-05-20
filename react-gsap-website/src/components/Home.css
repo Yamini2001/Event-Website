@@ -5,7 +5,7 @@ body, .App {
     padding: 0;
     height: 100vh; /* Full height of the viewport */
     width: 100vw;  /* Full width of the viewport */
-    overflow: hidden; /* Optional: Prevent scrollbars if content overflows */
+    overflow: auto; /* Optional: Prevent scrollbars if content overflows */
 }
 
 .home-container {
@@ -15,7 +15,7 @@ body, .App {
     height: 100vh; /* Full height of the viewport */
     width: 100vw;  /* Full width of the viewport */
     overflow: hidden; /* Optional: Prevent scrollbars if content overflows */
-    background-color: #2a2929;
+    background-color: rgb(30, 29, 29);
     
 }
 
@@ -48,21 +48,32 @@ body, .App {
 .grey-text {
     color: grey;
 }
-.slider-container {
-    position: absolute;
-    top: 50%;
-    left: 0;
+.images{
+    margin-top: 100px;
+}
+
+.slider-wrapper {
+    position: relative;
+    width: 30%;
+    margin-top: 30px;
+    height: 300px;
+    display: flex;
+}
+
+
+.images {
     width: 100%;
-    height: 150px; /* Adjust height as needed */
-    transform: translateY(-50%); /* Center vertically */
-    z-index: -1; /* Ensure it is behind other content */
+    display: flex;
+    overflow-x: auto;
 }
 
 /* Home.css */
 .vertical-marquee-container {
     position: absolute;
-    right: 20px; /* Adjust positioning as needed */
-    top: 100px; /* Adjust positioning as needed */
+    right: 60px; /* Adjust positioning as needed */
+    top: 100px; 
+    align-items: center;
+    margin-top: -650px;
 }
 
 

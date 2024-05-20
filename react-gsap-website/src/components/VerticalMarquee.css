@@ -1,46 +1,46 @@
-/* VerticalMarquee.css */
 .vertical-marquee {
-    position: absolute; /* Ensure the position is absolute to control it relative to the viewport */
-    width: 90px; /* Adjust width as needed */
-    height: 1380vh; /* Full height of the viewport */
+    position: relative;
+    width: 100%; /* Full width as needed when rotated */
+    height: 100px; /* Adjust height to the previous width */
     overflow: hidden; /* Hide overflow content */
-    display: flex-end;
-    align-items: center;
-    justify-content: flex-end; /* Align content to the bottom */
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start; /* Align content to the top when rotated */
     background-color: plum; /* Optional: background color */
-    right: 690px; /* Adjust the right position as needed */
-    top: -950px; /* Start from the top */
-    bottom: 630px;
+    right: -680px; /* Adjust the right position as needed */
+    top: -200px; /* Ensure the marquee starts at the top of the viewport */
+    bottom: -360px;
+    transform: rotate(90deg); /* Rotate the entire container */
+    transform-origin: left bottom; /* Set the rotation origin */
+
 }
 
 .marquee-content {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: row-reverse; /* Start from the bottom */
     align-items: center;
-    justify-content: flex-end; /* Start animation from the bottom */
-    animation: scroll 10s linear infinite; /* Adjust duration as needed */
-    text-wrap: nowrap;
-    /* transform: ; */
-}
-
-.marquee-item {
-    margin: 10px 0; /* Space between items */
-    white-space: nowrap; /* Prevent text wrapping */
+    justify-content: flex-start; /* Align content to the bottom */
+    animation: scroll 20s linear infinite; /* Adjust duration as needed */
     font-weight: bold;
     font-size: 24px;
+    padding: 70px;
+    margin:70px;
 }
 
-.marquee-item img {
-    background-color: none; /* No background color */
-    color: black;
+.marquee-content li {
+    margin: 10px 20px; /* Space between items */
+    white-space: nowrap; /* Prevent text wrapping */
+    color: black; /* Text color */
+    transform: rotate(360deg); /* Rotate content back to normal */
+    list-style: none;
 }
 
-.text {
-    color: black;
-    /* background-color: none;  */
-    transform: rotate(90deg);
-    margin: 10px 0; 
-    background-color: plum;
+
+.marquee-content img {
+    background: none; /* Remove background */
+    width: 70px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    transform: rotate(180deg); /* Rotate content back to normal */
 }
 
 @keyframes scroll {
